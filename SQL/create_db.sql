@@ -2,7 +2,7 @@
 
 -- DROP DATABASE IF EXISTS my_test_for_work;
 
-CREATE DATABASE my_test_for_work
+CREATE DATABASE my_test_framework
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'
