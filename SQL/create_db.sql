@@ -1,6 +1,6 @@
--- Database: my_test_for_work
+-- Database: my_test_framework
 
--- DROP DATABASE IF EXISTS my_test_for_work;
+-- DROP DATABASE IF EXISTS my_test_framework;
 
 CREATE DATABASE my_test_framework
     WITH

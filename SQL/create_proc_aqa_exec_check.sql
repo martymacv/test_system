@@ -1,6 +1,6 @@
--- PROCEDURE: dq.dq_exec_check()
+-- PROCEDURE: aqa.aqa_exec_check()
 
--- DROP PROCEDURE IF EXISTS dq.dq_exec_check();
+-- DROP PROCEDURE IF EXISTS aqa.aqa_exec_check();
 
 CREATE OR REPLACE PROCEDURE aqa.aqa_exec_check(
 	)
