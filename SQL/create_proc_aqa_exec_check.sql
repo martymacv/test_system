@@ -10,7 +10,7 @@ AS $BODY$
     v_dq_id numeric;
 	record record;
   begin
-    for record in select * from dq.dq_check_sql loop
+    for record in select * from aqa.aqa_check_sql loop
 	  insert into aqa.aqa_check_val (dq_id) values (record.dq_id);
 	end loop;
   end
