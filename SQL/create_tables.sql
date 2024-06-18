@@ -1,6 +1,6 @@
 -- Table: aqa.check_sql
 
--- DROP TABLE IF EXISTS aqa.check_sql;
+DROP TABLE IF EXISTS aqa.check_sql;
 
 CREATE TABLE IF NOT EXISTS aqa.check_sql
 (
