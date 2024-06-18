@@ -1,6 +1,0 @@
--- SCHEMA: aqa
-
--- DROP SCHEMA IF EXISTS aqa ;
-
-CREATE SCHEMA IF NOT EXISTS aqa
-    AUTHORIZATION postgres;

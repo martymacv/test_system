@@ -1,8 +1,8 @@
--- PROCEDURE: aqa.aqa_exec_check()
+-- PROCEDURE: aqa.exec_check()
 
--- DROP PROCEDURE IF EXISTS aqa.aqa_exec_check();
+-- DROP PROCEDURE IF EXISTS aqa.exec_check();
 
-CREATE OR REPLACE PROCEDURE aqa.aqa_exec_check(
+CREATE OR REPLACE PROCEDURE aqa.exec_check(
 	)
 LANGUAGE 'plpgsql'
 AS $BODY$
@@ -10,10 +10,10 @@ AS $BODY$
     v_dq_id numeric;
 	record record;
   begin
-    for record in select * from aqa.aqa_check_sql loop
-	  insert into aqa.aqa_check_val (dq_id) values (record.dq_id);
+    for record in select * from aqa.check_sql loop
+	  insert into aqa.check_val (dq_id) values (record.dq_id);
 	end loop;
   end
 $BODY$;
-ALTER PROCEDURE aqa.aqa_exec_check()
+ALTER PROCEDURE aqa.exec_check()
     OWNER TO postgres;
