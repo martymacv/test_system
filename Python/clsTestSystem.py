@@ -1,4 +1,3 @@
-import datetime
 import json
 
 
@@ -21,12 +20,13 @@ class TestSystemConf:
                                  uni_owner_list: set,
                                  database_name_list: set,
                                  tables_list: list[tuple],
-                                 authorization_list: list[tuple]):
+                                 authorization_list: list[tuple],
+                                 aqa_id_list: list):
         for owner in uni_owner_list:
             self.__current_config[owner] = dict()
         for owner, table in tables_list:
             self.__current_config[owner][table] = dict()
-            self.__current_config[owner][table]["full_check_list"] = []
+            self.__current_config[owner][table]["full_check_list"] = aqa_id_list
             self.__current_config[owner][table]["pass_check_list"] = []
             self.__current_config[owner][table]["fail_check_list"] = []
             self.__current_config[owner][table]["skip_check_list"] = []
@@ -60,4 +60,22 @@ class TestSystemConf:
         return self.__current_config[owner][table]["quarantine_check_list"]
 
     def get_other_check_list(self, owner, table):
+        return self.__current_config[owner][table]["other_check_list"]
+
+    def set_pass_check_list(self, owner, table):
+        return self.__current_config[owner][table]["pass_check_list"]
+
+    def set_fail_check_list(self, owner, table):
+        return self.__current_config[owner][table]["fail_check_list"]
+
+    def set_skip_check_list(self, owner, table):
+        return self.__current_config[owner][table]["skip_check_list"]
+
+    def set_null_check_list(self, owner, table):
+        return self.__current_config[owner][table]["null_check_list"]
+
+    def set_quarantine_check_list(self, owner, table):
+        return self.__current_config[owner][table]["quarantine_check_list"]
+
+    def set_other_check_list(self, owner, table):
         return self.__current_config[owner][table]["other_check_list"]
