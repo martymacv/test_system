@@ -41,41 +41,41 @@ class TestSystemConf:
             self.__current_config["properties"][database_name][password] = ""
         return self.__current_config
 
-    def get_full_check_list(self, owner, table):
+    def get_full_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["full_check_list"]
 
-    def get_pass_check_list(self, owner, table):
+    def get_pass_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["pass_check_list"]
 
-    def get_fail_check_list(self, owner, table):
+    def get_fail_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["fail_check_list"]
 
-    def get_skip_check_list(self, owner, table):
+    def get_skip_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["skip_check_list"]
 
-    def get_null_check_list(self, owner, table):
+    def get_null_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["null_check_list"]
 
-    def get_quarantine_check_list(self, owner, table):
+    def get_quarantine_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["quarantine_check_list"]
 
-    def get_other_check_list(self, owner, table):
+    def get_other_check_list(self, owner: str, table: str):
         return self.__current_config[owner][table]["other_check_list"]
 
-    def set_pass_check_list(self, owner, table):
-        return self.__current_config[owner][table]["pass_check_list"]
+    def set_pass_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["pass_check_list"] = aqa_id_list
 
-    def set_fail_check_list(self, owner, table):
-        return self.__current_config[owner][table]["fail_check_list"]
+    def set_fail_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["fail_check_list"] = aqa_id_list
 
-    def set_skip_check_list(self, owner, table):
-        return self.__current_config[owner][table]["skip_check_list"]
+    def set_skip_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["skip_check_list"] = aqa_id_list
 
-    def set_null_check_list(self, owner, table):
-        return self.__current_config[owner][table]["null_check_list"]
+    def set_null_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["null_check_list"] = aqa_id_list
 
-    def set_quarantine_check_list(self, owner, table):
-        return self.__current_config[owner][table]["quarantine_check_list"]
+    def set_quarantine_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["quarantine_check_list"] = aqa_id_list
 
-    def set_other_check_list(self, owner, table):
-        return self.__current_config[owner][table]["other_check_list"]
+    def set_other_check_list(self, owner: str, table: str, aqa_id_list: list):
+        self.__current_config[owner][table]["other_check_list"] = aqa_id_list
