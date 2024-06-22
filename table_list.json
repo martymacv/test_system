@@ -1,0 +1,21 @@
+{
+  "EQ": {
+    "TEST_TBL": {
+      "PREPARE_RELIZ": {
+        "TOTAL": "",
+        "PASSED": "",
+        "FAILED": ""
+      },
+      "CHECK_RELIZ": {
+        "TOTAL": "",
+        "PASSED": "",
+        "FAILED": ""
+      },
+      "CHECK_RELIZ_UPD": {
+        "TOTAL": "",
+        "PASSED": "",
+        "FAILED": ""
+      }
+    }
+  }
+}
