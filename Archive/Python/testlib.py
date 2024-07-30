@@ -4,7 +4,9 @@ import subprocess
 
 import psycopg2
 
-
+s: subprocess.Popen = subprocess.Popen([])
+s: bytes = s.communicate()[0]
+s: str = s.decode("utf-8")
 class LogIn:
     def __init__(self, db_name: str):
         self.__db_name = db_name
