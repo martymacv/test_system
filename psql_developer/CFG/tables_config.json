@@ -1,0 +1,252 @@
+{
+  "calc": {
+    "calendar": {
+      "calendar_date": {
+        "data_type": "date primary key",
+        "comment": "Календарная дата"
+      },
+      "is_workday": {
+        "data_type": "boolean default null",
+        "comment": "Является ли день рабочим"
+      },
+      "is_weekend": {
+        "data_type": "boolean default null",
+        "comment": "Является ли день выходным"
+      },
+      "is_holiday": {
+        "data_type": "boolean default null",
+        "comment": "Является ли день праздничным"
+      }
+    },
+    "articles": {
+      "article_id": {
+        "data_type": "serial primary key",
+        "comment": "Уникальный идентификатор статьи расходов или доходов"
+      },
+      "article_type": {
+        "data_type": "varchar(1) not null",
+        "comment": "Может принимать значения (i)ncome или (e)xpense (доход или расход)"
+      },
+      "article_desc": {
+        "data_type": "varchar(200) not null",
+        "comment": "Краткое описание статьи расходов"
+      },
+      "st_actual": {
+        "data_type": "varchar(1) not null",
+        "comment": "Может принимать значения (a)ctual или (h)istory (актуальная или архивная/историческая)"
+      },
+      "updatedt": {
+        "data_type": "date default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    }
+  },
+  "fact": {
+    "expenses": {
+      "expense_id": {
+        "data_type": "serial primary key",
+        "comment": "Уникальный ID расходов"
+      },
+      "article_id": {
+        "data_type": "numeric unique not null",
+        "comment": "Уникальный идентификатор статьи расходов"
+      },
+      "expense": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Сумма фактических расходов"
+      },
+      "expense_date": {
+        "data_type": "date not null",
+        "comment": "Фактическая дата совершения денежных трат"
+      },
+      "updatedt": {
+        "data_type": "date default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    },
+    "incomes": {
+      "id": {
+        "data_type": "serial primary key",
+        "comment": "Порядковый номер записи в таблице"
+      },
+      "income_id": {
+        "data_type": "varchar(15) unique not null",
+        "comment": "Тип дохода, например SALARY - зарплата, CASHBACK - возраты по тратам и т.д."
+      },
+      "incomes": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Размер фактического дохода в рублях"
+      },
+      "income_date": {
+        "data_type": "date not null",
+        "comment": "Дата фактического получения дохода"
+      },
+      "updatedt": {
+        "data_type": "timestamp without time zone default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    }
+  },
+  "plan": {
+    "expenses": {
+      "expense_id": {
+        "data_type": "serial primary key",
+        "comment": "Уникальный ID расходов"
+      },
+      "article_id": {
+        "data_type": "numeric unique not null",
+        "comment": "Уникальный идентификатор статьи расходов"
+      },
+      "expense": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Сумма планируемых расходов"
+      },
+      "expense_date": {
+        "data_type": "date not null",
+        "comment": "Планируемая дата совершения денежных трат"
+      },
+      "updatedt": {
+        "data_type": "date default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    },
+    "incomes": {
+      "id": {
+        "data_type": "serial primary key",
+        "comment": "Порядковый номер записи в таблице"
+      },
+      "income_id": {
+        "data_type": "varchar(15) unique not null",
+        "comment": "Тип дохода, например SALARY - зарплата, CASHBACK - возраты по тратам и т.д."
+      },
+      "incomes": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Размер планируемого дохода в рублях"
+      },
+      "income_date": {
+        "data_type": "date not null",
+        "comment": "Планируемая дата получения дохода"
+      },
+      "updatedt": {
+        "data_type": "timestamp without time zone default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    }
+  },
+  "history": {
+    "expenses": {
+      "expense_id": {
+        "data_type": "serial primary key",
+        "comment": "Уникальный ID расходов"
+      },
+      "article_id": {
+        "data_type": "numeric unique not null",
+        "comment": "Уникальный идентификатор статьи расходов"
+      },
+      "plan_expense": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Сумма планируемых расходов"
+      },
+      "fact_expense": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Сумма фактических расходов"
+      },
+      "expense_date": {
+        "data_type": "date not null",
+        "comment": "Фактическая дата совершения денежных трат"
+      },
+      "updatedt": {
+        "data_type": "date default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    },
+    "incomes": {
+      "id": {
+        "data_type": "serial primary key",
+        "comment": "Порядковый номер записи в таблице"
+      },
+      "income_id": {
+        "data_type": "varchar(15) unique not null",
+        "comment": "Тип дохода, например SALARY - зарплата, CASHBACK - возраты по тратам и т.д."
+      },
+      "plan_incomes": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Размер планируемого дохода в рублях"
+      },
+      "fact_incomes": {
+        "data_type": "numeric(10,2) not null",
+        "comment": "Размер фактического дохода в рублях"
+      },
+      "income_date": {
+        "data_type": "date not null",
+        "comment": "Дата фактического получения дохода"
+      },
+      "updatedt": {
+        "data_type": "timestamp without time zone default now()",
+        "comment": "Дата фактического внесения или последнего изменения записи"
+      }
+    }
+  },
+  "test": {
+    "check_sql": {
+      "check_id": {
+        "data_type": "serial primary key",
+        "comment": "Порядковый номер теста"
+      },
+      "schema": {
+        "data_type": "varchar(25) not null",
+        "comment": "Идентификация объекта тестирования по названию схемы"
+      },
+      "obj_name": {
+        "data_type": "varchar(25) not null",
+        "comment": "Идентификация объекта тестирования по названию объекта (это может быть таблица, представление, процедура и прочие объекты БД"
+      },
+      "check_desc": {
+        "data_type": "varchar(200) not null",
+        "comment": "Название или краткое описание теста"
+      },
+      "check_suite": {
+        "data_type": "varchar(200) not null default 'dev_tests'",
+        "comment": "Группа тестов, объединенная одним признаком"
+      },
+      "sql_text": {
+        "data_type": "varchar(4000) not null",
+        "comment": "Собственно сам тест в виде шаблона sql-запроса с параметрами, которые заменяется процедура. Пример параметра - :PARAM1:"
+      },
+      "st_actual": {
+        "data_type": "varchar(1) not null default 'a'",
+        "comment": "Актуальность теста (a)ctual, (d)eleted"
+      },
+      "updatedt": {
+        "data_type": "timestamp without time zone default now()",
+        "comment": "Дата создания или последнего изменения теста"
+      }
+    },
+    "check_result": {
+      "check_id": {
+        "data_type": "numeric not null",
+        "comment": "Порядковый номер теста"
+      },
+      "check_suite": {
+        "data_type": "varchar(200) not null default 'dev_tests'",
+        "comment": "Группа тестов, объединенная одним признаком"
+      },
+      "check_val": {
+        "data_type": "numeric",
+        "comment": "Исторический результат выполнения теста"
+      },
+      "check_date": {
+        "data_type": "date not null default now()",
+        "comment": "Дата выполнения теста (или дата, за которую выполнялся тест, она может не совпадать с сегодняшней"
+      },
+      "check_sql": {
+        "data_type": "varchar(4000) not null",
+        "comment": "Собственно сам тест в виде готового sql-запроса, который можно скопировать и запустить вручную"
+      },
+      "updatedt": {
+        "data_type": "timestamp without time zone default now()",
+        "comment": "Абсолютная дата выполнения теста"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "MATCHES": {
+    "1_KEY": "",
+    "2_KEYS": "select case when count(*) = 0 then 1 else 0 end from :FST_TBL: a left join :SND_TBL: b on a.:1ST_CLMN: = b.:2ND_CLMN: and a.:3ND_CLMN: = b.:4TH_CLMN: where date_trunc('month', a.expense_date) = to_date('01-05-2024', 'dd-mm-yyyy hh24:mi:ss') and b.expense_id is null"
+  }
+}

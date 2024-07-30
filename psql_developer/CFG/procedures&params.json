@@ -1,0 +1,13 @@
+{
+  "CALC": {
+    "ADD_CALENDAR_PRODUCTION": {
+      "YEAR": "DATE",
+      "HOLIDAYS": "LIST",
+      "WORKDAYS": "LIST"
+    },
+    "PROCEDURE2": {
+      "PARAM1": "DATA_TYPE",
+      "PARAM2": "DATA_TYPE"
+    }
+  }
+}
