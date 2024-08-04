@@ -1,0 +1,17 @@
+{
+  "CHECK_COLUMNS": {
+    "sql_text": "select count(COLUMN_NAME) from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '':TABLE:'' and TABLE_SCHEMA = '':SCHEMA:'' where COLUMN_NAME = '':COLUMN_NAME:''",
+    "sql_params": [
+      ":SCHEMA:",
+      ":TABLE:",
+      ":COLUMN_NAME:"
+    ]
+  },
+  "CHECK_TABLES": {
+    "sql_text": "select count(*) from :SCHEMA:.:TABLE: fetch first 1 rows only",
+    "sql_params": [
+      ":SCHEMA:",
+      ":TABLE:"
+    ]
+  }
+}

@@ -32,11 +32,11 @@
         "comment": "Краткое описание статьи расходов"
       },
       "st_actual": {
-        "data_type": "varchar(1) not null",
+        "data_type": "varchar(1) not null default 'a'",
         "comment": "Может принимать значения (a)ctual или (h)istory (актуальная или архивная/историческая)"
       },
       "updatedt": {
-        "data_type": "date default now()",
+        "data_type": "timestamp without time zone default now()",
         "comment": "Дата фактического внесения или последнего изменения записи"
       }
     }

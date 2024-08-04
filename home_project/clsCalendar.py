@@ -4,7 +4,7 @@ import json
 class CalendarProd:
     def __init__(self, year: int):
         self.__year = year
-        with open("C:/Users/Всеволод/PycharmProjects/test_system/psql_developer/CFG/calendars_prod.json", "r", encoding="utf-8", errors="ignore") as json_f:
+        with open("C:\\Users\\Всеволод\\PycharmProjects\\test_system\\home_project\\CFG\\calendars_prod.json", "r", encoding="utf-8", errors="ignore") as json_f:
             self.__calendar_prod = json.load(json_f)
 
     def get_year(self):

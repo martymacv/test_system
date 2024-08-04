@@ -26,7 +26,7 @@ class PostgresConnect:
     def __init__(self, dbname: str):  # , host: str, user: str, password: str, port: int):
         self.dbname = dbname
         self.autologin_params = dict()
-        with open("./CFG/.pgpass", "r", encoding="utf-8", errors="ignore") as pgpass_f:
+        with open("C:\\Users\\Всеволод\\PycharmProjects\\test_system\\home_project\\CFG\\.pgpass", "r", encoding="utf-8", errors="ignore") as pgpass_f:
             for db_p in [db_params.split(":") for db_params in pgpass_f.read().split("\n")]:
                 self.autologin_params.setdefault(db_p[2])
                 self.autologin_params[db_p[2]] = db_p[:2] + db_p[3:]
@@ -109,7 +109,7 @@ class PostgresConnect:
         sql_text = f"select NSPNAME from PG_CATALOG.PG_NAMESPACE where NSPNAME not in ('pg_toast','pg_catalog','public','information_schema')"
         for schema in self.fetchall_from_db(sql_text=sql_text):
             dump[schema[0]] = dict()
-            sql_text = f"select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = '{schema[0]}'"
+            sql_text = f"select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = '{schema[0]}' and TABLE_NAME not like 'v_%'"
             for table in self.fetchall_from_db(sql_text=sql_text):
                 dump[schema[0]][table[0]] = dict()
                 # dump[schema[0]][table[0]]["columns"] = None
@@ -120,7 +120,7 @@ class PostgresConnect:
                 dump_base = convert_type_to_json(self.fetchall_from_db(sql_text=sql_text))
                 for row in dump_base:
                     dump[schema[0]][table[0]]["values"].append(dict(zip(columns, row)))
-        with open(f"./DUMP/{self.dbname}_data_dump_{datetime.datetime.now().strftime("%Y%m%d")}.json", "w",
+        with open(f"C:\\Users\\Всеволод\\PycharmProjects\\test_system\\home_project\\DUMP\\{self.dbname}_data_dump_{datetime.datetime.now().strftime("%Y%m%d")}.json", "w",
                   encoding="utf-8") as json_f:
             json.dump(dump, json_f, indent=2, ensure_ascii=False)
 
@@ -140,3 +140,10 @@ class PostgresConnect:
 #     sql_procedure = sql_f.read()
 #     print(sql_procedure)
 # print(test.execute_sql_script(sql_procedure))
+
+
+# class CmdInterface(PostgresConnect):
+#     def __init__(self, dbname: str):
+#         super().__init__(dbname)
+#
+#     def ins_new_expen
