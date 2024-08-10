@@ -10,7 +10,7 @@ db_conn = psqlObjects.PostgresConnect('test_db_2')
 
 # мне нужно в цикле заполнить статьи расходов и доходов, exit - значит выход из цикла
 # datetime.datetime.strftime()
-commands = {
+commands: dict = {
     "exit": lambda: sys.exit(0)
 }
 command: str = ""
